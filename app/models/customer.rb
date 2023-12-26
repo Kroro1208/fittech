@@ -12,7 +12,7 @@ class Customer < ApplicationRecord
     withdrawn: 1,
     banned: 2
   }
-  
+
   before_validation :set_default_status, on: :create
 
   private
@@ -20,5 +20,4 @@ class Customer < ApplicationRecord
   def set_default_status
     self.status ||= :normal
   end
-
 end
