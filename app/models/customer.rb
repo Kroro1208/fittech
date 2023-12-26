@@ -4,7 +4,7 @@ class Customer < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   with_options presence: true do
-    validates :names
+    validates :name
     validates :status
   end
   enum status: {
@@ -12,4 +12,13 @@ class Customer < ApplicationRecord
     withdrawn: 1,
     banned: 2
   }
+  
+  before_validation :set_default_status, on: :create
+
+  private
+
+  def set_default_status
+    self.status ||= :normal
+  end
+
 end
