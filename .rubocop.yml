@@ -32,3 +32,5 @@ Style/Documentation:
 Metrics/BlockLength:
   Exclude:
     - "config/routes.rb"
+Layout/EndOfLine:
+  Enabled: false
