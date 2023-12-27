@@ -1,6 +1,6 @@
 class Admin::ProductsController < ApplicationController
   before_action :authenticate_admin!
-  before_action:set_product, only: %i[show edit update]
+  before_action :set_product, only: %i[show edit update]
 
 
   def index
@@ -8,7 +8,7 @@ class Admin::ProductsController < ApplicationController
   end
 
   def new
-    @priducts = Product.new
+    @product = Product.new
   end
 
   def create
@@ -17,6 +17,7 @@ class Admin::ProductsController < ApplicationController
       redirect_to admin_product_path(@product)
     else
       render :new
+    end
   end
 
   def show
@@ -32,6 +33,7 @@ class Admin::ProductsController < ApplicationController
       redirect_to admin_product_path(@product)
     else
       render :edit
+    end
   end
 
 
@@ -42,6 +44,6 @@ class Admin::ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:name, :description, :price, :stock)
+    params.require(:product).permit(:name, :description, :price, :stock, :image)
   end
 end
