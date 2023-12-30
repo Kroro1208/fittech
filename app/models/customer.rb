@@ -13,6 +13,8 @@ class Customer < ApplicationRecord
     banned: 2
   }
 
+  has_many :cart_items, dependent: :destroy
+
   before_validation :set_default_status, on: :create
 
   private

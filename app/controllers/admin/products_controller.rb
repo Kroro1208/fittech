@@ -2,7 +2,6 @@ class Admin::ProductsController < ApplicationController
   before_action :authenticate_admin!
   before_action :set_product, only: %i[show edit update]
 
-
   def index
     @products = Product.all
   end
@@ -20,13 +19,9 @@ class Admin::ProductsController < ApplicationController
     end
   end
 
-  def show
-  end
+  def show; end
 
-
-
-  def edit
-  end
+  def edit; end
 
   def update
     if @product.update(product_params)
@@ -35,7 +30,6 @@ class Admin::ProductsController < ApplicationController
       render :edit
     end
   end
-
 
   private
 
